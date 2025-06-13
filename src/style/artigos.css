@@ -1,0 +1,57 @@
+.btn-custom-add-artigo {
+    font-family: var(--fonte-jersey);
+    font-size: 1.3em;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-custom-add-artigo:hover {
+    transform: scale(1.05);
+}
+
+.artigoCard {
+    background-color: var(--fundo-card-custom) !important;
+    border: 2px solid var(--azul-primario);
+    color: var(--cor-texto);
+    transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+}
+
+.artigoCard:hover {
+    border-color: var(--rosa-primario) !important;
+    box-shadow: 0 0 15px var(--rosa-primario);
+    transform: translateY(-5px);
+}
+
+.artigoCard .card-img-top {
+    max-height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid var(--azul-primario);
+}
+
+.artigoCard .card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.artigoCard .card-title {
+    font-family: var(--fonte-jersey);
+    font-size: 1.5em;
+    color: var(--rosa-primario);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.artigoCard .card-text {
+    font-size: 0.95em;
+    text-align: justify;
+    color: #e0e0e0;
+    flex-grow: 1;
+}
