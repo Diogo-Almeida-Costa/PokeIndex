@@ -1,10 +1,10 @@
 import type { Artigo } from '../types/artigo.types.ts';
 
-const Artigos = 'artigos';
+const ARTIGOS = 'artigos';
 
 export const getArtigos = (): Artigo[] =>
 {
-    const dados = localStorage.getItem(Artigos);
+    const dados = localStorage.getItem(ARTIGOS);
 
     return dados ? JSON.parse(dados) : [];
 }
@@ -20,7 +20,7 @@ export const addArtigo = (dados: Omit<Artigo, 'id'>): Artigo =>
     };
 
     artigos.push(novoArtigo);
-    localStorage.setItem(Artigos, JSON.stringify(artigos));
+    localStorage.setItem(ARTIGOS, JSON.stringify(artigos));
     return novoArtigo;
 }
 
@@ -34,7 +34,7 @@ export const deleteArtigo = (id: string): void =>
 {
     const artigosAtualizados = getArtigos().filter(artigo => artigo.id !== id);
 
-    localStorage.setItem(Artigos, JSON.stringify(artigosAtualizados));
+    localStorage.setItem(ARTIGOS, JSON.stringify(artigosAtualizados));
 }
 
 export const atualizarArtigo = (artigoAtualizado: Artigo): Artigo | undefined =>
@@ -45,7 +45,7 @@ export const atualizarArtigo = (artigoAtualizado: Artigo): Artigo | undefined =>
     if(indiceArtigo !== -1)
     {
         artigos[indiceArtigo] = artigoAtualizado;
-        localStorage.setItem(Artigos, JSON.stringify(artigos));
+        localStorage.setItem(ARTIGOS, JSON.stringify(artigos));
         return artigoAtualizado;
     }
 
