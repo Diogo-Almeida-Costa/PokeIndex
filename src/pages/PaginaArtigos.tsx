@@ -7,18 +7,41 @@ import { CardArtigo } from '../components/CardArtigo';
 export const PaginaArtigos: React.FC = () =>
 {
     const [artigos, setArtigos] = useState<Artigo[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => 
     {
-        const artigosCarregados = artigoService.getArtigos();
-        setArtigos(artigosCarregados);
+        const fetchArtigos = async () =>
+        {
+            try
+            {
+                const artigosCarregados = await artigoService.getArtigos();
+                setArtigos(artigosCarregados);
+            }
+            catch(error)
+            {
+                console.error("Erro ao encontrar artigos", error);
+                alert("Erro para carregar artigos");
+            }
+            finally
+            {
+                setLoading(false);
+            }
+        };
+
+        fetchArtigos();
     }, []);
 
+    if(loading)
+    {
+        return <p className="text-center text-white mt-5 fs-4"> Carregando Artigos </p>
+    }
+
     return (
-        <div className='article-container'>
-            <div className='d-flex justify-content-between align-items-center mb-4'>
-                <h1 className='tituloPagina'> Historia Pokemon </h1>
-                <Link to="/sobre/adicionar" className='btn btn-success btn-custom-add-artigo'>
+        <div className='article-page-container'>
+            <div className='article-page-header'>
+                <h1 className='page-title'> Historia Pokemon </h1>
+                <Link to="/sobre/adicionar" className='btn btn-primary add-article-btn'>
                     + Adicionar Artigo
                 </Link>
             </div>
@@ -29,7 +52,7 @@ export const PaginaArtigos: React.FC = () =>
                             <CardArtigo key={artigo.id} artigo={artigo}/>
                     ))
                 ) : (
-                    <p>Nenhum artigo cadastrado.</p>
+                    <p className="text-center w-100 text-white-50 mt-5 fs-5">Nenhum artigo cadastrado.</p>
                 )}
             </div>
         </div>

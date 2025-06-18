@@ -30,7 +30,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'sobre/editar/:artigoId',
-        element: <PaginaDetalhesArtigo/>,
+        element: <PaginaFormularioArtigo/>,
       },
       {
         path: 'sobre/:artigoId',

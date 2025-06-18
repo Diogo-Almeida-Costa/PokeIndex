@@ -1,53 +1,50 @@
+import { db } from './firebase.ts';
+import { collection, getDocs, addDoc, doc, getDoc, deleteDoc, updateDoc, query, orderBy } from 'firebase/firestore';
 import type { Artigo } from '../types/artigo.types.ts';
 
-const ARTIGOS = 'artigos';
+const artigosCollectionRef = collection(db, 'artigos');
 
-export const getArtigos = (): Artigo[] =>
+export const getArtigos = async (): Promise<Artigo[]> =>
 {
-    const dados = localStorage.getItem(ARTIGOS);
+    const dados = await getDocs(query(artigosCollectionRef, orderBy('titulo')));
 
-    return dados ? JSON.parse(dados) : [];
+    const artigos = dados.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+    })) as Artigo[];
+    return artigos;
 }
 
-export const addArtigo = (dados: Omit<Artigo, 'id'>): Artigo =>
+export const addArtigo = async(dados: Omit<Artigo, 'id'>): Promise<string> =>
 {
-    const artigos = getArtigos();
+    const novoArtigo = await addDoc(artigosCollectionRef, dados);
+    return novoArtigo.id;
+}
 
-    const novoArtigo: Artigo =
+export const searchArtigo = async(id: string): Promise<Artigo | undefined> =>
+{
+    const artigo = doc(db, 'artigos', id);
+    const busca = await getDoc(artigo);
+
+    if(busca.exists())
     {
-        id: crypto.randomUUID(),
-        ...dados,
-    };
-
-    artigos.push(novoArtigo);
-    localStorage.setItem(ARTIGOS, JSON.stringify(artigos));
-    return novoArtigo;
-}
-
-export const searchArtigo = (id: string): Artigo | undefined =>
-{
-    const artigos = getArtigos();
-    return artigos.find(artigo => artigo.id === id);
+        return {...busca.data(), id: busca.id} as Artigo;
+    }
+    return undefined;
 } 
 
-export const deleteArtigo = (id: string): void =>
+export const deleteArtigo = async(id: string): Promise<void> =>
 {
-    const artigosAtualizados = getArtigos().filter(artigo => artigo.id !== id);
-
-    localStorage.setItem(ARTIGOS, JSON.stringify(artigosAtualizados));
+    const artigo = doc(db, 'artigos', id);
+    await deleteDoc(artigo);
 }
 
-export const atualizarArtigo = (artigoAtualizado: Artigo): Artigo | undefined =>
+export const atualizarArtigo = async(artigoAtualizado: Artigo): Promise<void> =>
 {
-    const artigos = getArtigos();
-    const indiceArtigo = artigos.findIndex(artigo => artigo.id === artigoAtualizado.id);
+    const artigos = doc(db, 'artigos', artigoAtualizado.id);
 
-    if(indiceArtigo !== -1)
-    {
-        artigos[indiceArtigo] = artigoAtualizado;
-        localStorage.setItem(ARTIGOS, JSON.stringify(artigos));
-        return artigoAtualizado;
-    }
+    const dadosAtualizar = {...artigoAtualizado};
+    delete (dadosAtualizar as Partial<Artigo>).id;
 
-    return undefined;
+    await updateDoc(artigos, dadosAtualizar);
 }

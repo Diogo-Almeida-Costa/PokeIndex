@@ -13,36 +13,48 @@ export const PaginaDetalhesArtigo: React.FC = () =>
     {
         if(artigoId)
         {
-            const artigoEncontrado = artigoServices.searchArtigo(artigoId);
-            if(artigoEncontrado)
+            const fetchArtigo = async () =>
             {
-                setArtigo(artigoEncontrado);
-            }
-            else
-            {
-                alert("Artigo não foi encontrado!");
-                navigate('/sobre');
-            }
+                const artigoEncontrado = await artigoServices.searchArtigo(artigoId);
+                if(artigoEncontrado)
+                {
+                    setArtigo(artigoEncontrado);
+                }
+                else
+                {
+                    alert("Artigo não encontrado");
+                    navigate('/sobre');
+                }
+            };
+            fetchArtigo();
         }
     }, [artigoId, navigate]);
 
-    const handleDelete = () => 
+    const handleDelete = async () => 
     {
         if(artigo && window.confirm(`Deseja mesmo excluir "${artigo.titulo} "?`))
         {
-            artigoServices.deleteArtigo(artigo.id);
-            alert("Artigo excluido");
-            navigate("/sobre");
+            try
+            {
+                artigoServices.deleteArtigo(artigo.id);
+                alert("Artigo excluido");
+                navigate("/sobre");
+            }
+            catch(error)
+            {
+                console.log("Erro para excluir artigo", error);
+                alert("Falha para excluir artigo");
+            }
         }
     };
 
     if(!artigo)
     {
-        return <p> Carregando artigo... </p>
+        return <p className="text-center text-white mt-5 fs-4"> Carregando artigo... </p>
     }
 
     return(
-        <div className='article-detailc-container'>
+        <div className='article-detail-container'>
             <img src={artigo.imagem} className='article-detail-image'/>
             <h1 className='article-detail-title'> {artigo.titulo} </h1>
             <div className='article-detail-content'>

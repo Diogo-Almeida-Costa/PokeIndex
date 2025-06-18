@@ -1,6 +1,42 @@
-.article-container {
+.article-page-container {
   width: 100%;
   max-width: 1200px;
+}
+
+/* Novo cabeçalho da página de artigos */
+.article-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.page-title {
+  font-family: var(--fonte-jersey);
+  font-size: clamp(2.5rem, 4vw, 3rem);
+  color: #FFFFFF;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 10px var(--rosa-primario);
+}
+
+.add-article-btn {
+  font-family: var(--fonte-arial);
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  background-color: var(--rosa-primario) !important;
+  border-color: var(--rosa-primario) !important;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.add-article-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  background-color: #d84368 !important; /* Cor mais escura no hover */
+  border-color: #d84368 !important;
 }
 
 .article-grid {
@@ -10,20 +46,22 @@
 }
 
 .artigoCard {
-  background-color: #fff !important;
+  background-color: rgba(255, 255, 255, 0.95) !important;
   border: 1px solid #e0e0e0 !important;
-  border-radius: 8px !important;
+  border-radius: 12px !important;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   color: #333 !important;
   text-decoration: none !important;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .artigoCard:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
 }
 
 .artigoCard .card-img-top {
@@ -34,6 +72,9 @@
 
 .artigoCard .card-body {
   padding: 1.25rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .artigoCard .card-title {
@@ -41,18 +82,20 @@
   font-size: 1.25rem;
   font-weight: bold;
   color: var(--azul-primario) !important;
+  margin-bottom: 0.75rem;
 }
 
 .artigoCard .card-text {
-  color: #666;
+  color: #555;
   font-size: 0.95rem;
+  flex-grow: 1;
 }
 
 .article-detail-container {
   background-color: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
   color: #333;
   max-width: 900px;
   margin: auto;
@@ -60,28 +103,31 @@
 
 .article-detail-image {
   width: 100%;
-  height: 400px;
+  max-height: 450px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 12px;
   margin-bottom: 2rem;
 }
 
 .article-detail-title {
   font-family: var(--fonte-jersey);
-  font-size: 3rem;
+  font-size: 3.5rem;
   color: var(--azul-primario);
   margin-bottom: 1.5rem;
+  line-height: 1.2;
 }
 
 .article-detail-content {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  white-space: pre-wrap; /* Preserva quebras de linha e espaços do conteúdo */
+  font-size: 1.15rem;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  color: #444;
 }
 
 .form-card-modern {
   background-color: white;
   color: #333;
   border: none;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  padding: 1rem;
 }
