@@ -6,11 +6,10 @@ export const MenuLateral: React.FC = () =>
     return(
         <aside className="menu-lateral">
             <nav className="menu">
-                <NavLink to="/login"> Login </NavLink>
-                <NavLink to="/meus-times"> Meus Times </NavLink>
-                <NavLink to="/sobre"> Sobre </NavLink>
-                <NavLink to="/pokedex"> Pokedex </NavLink>
-                <NavLink to="/escolher-pokemon"> Selecionar time </NavLink>
+                <NavLink to="/login" className="btn btn-custom-menu-lateral mb-2"> Login </NavLink>
+                <NavLink to="/meus-times" className="btn btn-custom-menu-lateral mb-2"> Meus Times </NavLink>
+                <NavLink to="/sobre" className="btn btn-custom-menu-lateral mb-2"> Sobre </NavLink>
+                <NavLink to="/pokedex" className="btn btn-custom-menu-lateral mb-2"> Pokedex </NavLink>
             </nav>
             <div className="pokemon-img mt-auto">
                 <img src="/img/bulbasaur - durp.png"/>

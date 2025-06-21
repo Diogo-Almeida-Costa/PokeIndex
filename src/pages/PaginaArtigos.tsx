@@ -39,22 +39,23 @@ export const PaginaArtigos: React.FC = () =>
 
     return (
         <div className='article-page-container'>
-            <div className='article-page-header'>
-                <h1 className='page-title'> Historia Pokemon </h1>
-                <Link to="/sobre/adicionar" className='btn btn-primary add-article-btn'>
-                    + Adicionar Artigo
-                </Link>
-            </div>
+        <div className="article-page-header">
+            <h1 className='page-title'>História Pokémon</h1>
+        </div>
 
-            <div className='article-grid'>
-                {artigos.length > 0 ? (
-                    artigos.map((artigo) => (
-                            <CardArtigo key={artigo.id} artigo={artigo}/>
-                    ))
-                ) : (
-                    <p className="text-center w-100 text-white-50 mt-5 fs-5">Nenhum artigo cadastrado.</p>
-                )}
-            </div>
+        <div className='article-grid'>
+            {artigos.length > 0 ? (
+            artigos.map((artigo) => (
+                <CardArtigo key={artigo.id} artigo={artigo} />
+            ))
+            ) : (
+            <p className="text-center w-100 text-black-50 mt-5 fs-5">Nenhum artigo registado. Seja o primeiro a criar!</p>
+            )}
+        </div>
+
+        <Link to="/sobre/adicionar" className='add-btn'>
+            +
+        </Link>
         </div>
     );
 };
