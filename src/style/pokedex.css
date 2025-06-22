@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
+
+:root {
+  --cor-normal: #A8A77A;
+  --cor-fogo: #FF4B00;
+  --cor-agua: #0074F8;
+  --cor-eletrico: #FFD000;
+  --cor-planta: #3BCB3F;
+  --cor-gelo: #2BDDE2;
+  --cor-lutador: #E03030;
+  --cor-veneno: #ab42ab;
+  --cor-terrestre: #D9BF67;
+  --cor-voador: #A890F0;
+  --cor-psiquico: #FF3E81;
+  --cor-inseto: #b4e22c;
+  --cor-pedra: #BBA047;
+  --cor-fantasma: #6F45AA;
+  --cor-dragao: #7038F8;
+  --cor-sombrio: #543D37;
+  --cor-aco: #B8B8D0;
+  --cor-fada: #F080E1;
+}
+
+h2 {
+  font-family: "Jersey 15", sans-serif;
+  color: #f0557c;
+  text-align: center;
+  margin-top: -10vh;
+  margin-bottom: -10vh;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+.pokedex-container {
+  padding: 20px;
+  font-family: "Jersey 15", sans-serif;
+  color: #ffffff;
+}
+
+.pokedex-title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  color: #f0557c;
+}
+
+.pokemon-card 
+{
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    color: white;
+    color: white;
+    background-blend-mode: screen;
+    background-repeat: no-repeat;
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.pokemon-card:hover {
+  transform: scale(1.03);
+  border-color: #f0557c;
+}
+
+.pokemon-image {
+  background-color: #121212;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.pokemon-image img {
+  max-height: 150px;
+}
+
+.pokemon-info {
+  padding: 15px;
+  color: #f5f5f5;
+}
+
+.pokemon-info h5 {
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.pokemon-info .tipo {
+  display: inline-block;
+  background-color: #444;
+  padding: 5px 10px;
+  border-radius: 12px;
+  margin-right: 6px;
+  color: white;
+  font-size: 0.85rem;
+  text-transform: capitalize;
+}
+
+@keyframes gradienteAnimado {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.regiao-btn {
+  font-family: 'Jersey 15', sans-serif;
+  border: 3px solid transparent;
+  border-color: #4948489f;
+  color: white;
+  background: linear-gradient(270deg, #1e28be, #3a2abf, #7f2bcf, #d62f87, #f0557c);
+  background-size: 300% 300%;
+  animation: gradienteAnimado 3s ease-in-out infinite;
+  transition: transform 0.2s ease;
+  letter-spacing: 1px;
+  padding: 10px 20px;
+  margin: 4px;
+  border-radius: 15px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.regiao-btn:hover {
+  transform: scale(1.15);
+  border-color: #ffffff;
+}
+
+.regiao-btn.active {
+  background: linear-gradient(to right, #ffffff, #eeeeee);
+  color: #1e1e1e;
+  font-weight: bold;
+  border-color: #f0557c;
+  box-shadow: 0 0 14px #f0557c;
+  animation: none;
+}

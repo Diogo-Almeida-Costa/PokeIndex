@@ -10,6 +10,7 @@ import { PaginaArtigos } from './pages/PaginaArtigos.tsx';
 import { Layout } from './components/Layout.tsx';
 import { PaginaDetalhesArtigo } from './pages/PaginaDetalhesArtigo.tsx';
 import { PaginaFormularioArtigo } from './pages/PaginaFormularioArtigo.tsx';
+import {Pokedex} from './pages/Pokedex.tsx';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
         path: 'sobre/:artigoId',
         element: <PaginaDetalhesArtigo/>,
       },
+      {
+        path: 'Pokedex',
+        element: <Pokedex/>,
+      }
     ],
   },
 ]);
