@@ -6,7 +6,7 @@ import Dashboard from './components/Dashboard.jsx';
 import pokeindexLogo from '/img/PokeIndex.gif'; // Caminho ajustado para public/img
 import './App.css';
 
-function AuthApp() {
+function App() {
   const [isLogin, setIsLogin] = useState(true);
   const { currentUser } = useAuth();
 
@@ -41,5 +41,5 @@ function AuthApp() {
   );
 }
 
-export default AuthApp;
+export default App;
 

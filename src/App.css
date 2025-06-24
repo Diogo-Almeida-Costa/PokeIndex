@@ -1,42 +1,155 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* Estilos customizados para o PokeIndex */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-image: url('/img/background.png'); /* Caminho ajustado para public/img */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.auth-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  max-width: 450px;
+  width: 100%;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.logo-container {
+  margin-bottom: 30px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.logo-container img {
+  max-width: 300px;
+  height: auto;
+}
+
+.form-control {
+  background-color: #4a4a4a;
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  padding: 15px;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.form-control::placeholder {
+  color: #cccccc;
+}
+
+.form-control:focus {
+  background-color: #4a4a4a;
+  border: 2px solid #007bff;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.btn-primary-custom {
+  background-color: #5cb85c;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary-custom:hover {
+  background-color: #4cae4c;
+}
+
+.btn-secondary-custom {
+  background-color: transparent;
+  border: 2px solid #5cb85c;
+  border-radius: 8px;
+  color: #5cb85c;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary-custom:hover {
+  background-color: #5cb85c;
+  color: white;
+}
+
+.text-muted-custom {
+  color: #666666;
+  margin: 20px 0 10px 0;
+  font-size: 14px;
+}
+
+.alert-custom {
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 12px;
+  font-size: 14px;
+}
+
+.alert-danger-custom {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+}
+
+.alert-success-custom {
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+}
+
+/* Dashboard styles */
+.dashboard-container {
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.dashboard-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.user-info {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .auth-card {
+    padding: 30px 20px;
+    margin: 10px;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .logo-container img {
+    max-width: 250px;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}

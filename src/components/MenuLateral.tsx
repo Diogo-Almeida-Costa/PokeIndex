@@ -9,7 +9,7 @@ export const MenuLateral: React.FC = () =>
                 <NavLink to="/login" className="btn btn-custom-menu-lateral mb-2"> Login </NavLink>
                 <NavLink to="/meus-times" className="btn btn-custom-menu-lateral mb-2"> Meus Times </NavLink>
                 <NavLink to="/sobre" className="btn btn-custom-menu-lateral mb-2"> Sobre </NavLink>
-                <NavLink to="/Pokedex" className="btn btn-custom-menu-lateral mb-2"> Pokedex </NavLink>
+                <NavLink to="/pokedex" className="btn btn-custom-menu-lateral mb-2"> Pokedex </NavLink>
             </nav>
             <div className="pokemon-img mt-auto">
                 <img src="/img/bulbasaur - durp.png"/>

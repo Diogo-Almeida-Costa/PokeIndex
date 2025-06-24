@@ -1,18 +1,25 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import App from './App.tsx';
+import './index.css';
 import './style/artigos.css';
 import './style/modern-articles.css';
-import {createBrowserRouter, RouterProvider} from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { PaginaArtigos } from './pages/PaginaArtigos.tsx';
 import { Layout } from './components/Layout.tsx';
 import { PaginaDetalhesArtigo } from './pages/PaginaDetalhesArtigo.tsx';
 import { PaginaFormularioArtigo } from './pages/PaginaFormularioArtigo.tsx';
-import {Pokedex} from './pages/Pokedex.tsx';
+import AuthWrapper from './AuthWrapper.tsx'; // Importar o componente AuthWrapper
 
 const router = createBrowserRouter([
+  {
+    path: '/login',
+    element: <AuthWrapper />, // Rota para login/cadastro
+  },
+  {
+    path: '/cadastro',
+    element: <AuthWrapper />, // Rota para login/cadastro
+  },
   {
     path: '/',
     element: <Layout/>,
@@ -37,10 +44,6 @@ const router = createBrowserRouter([
         path: 'sobre/:artigoId',
         element: <PaginaDetalhesArtigo/>,
       },
-      {
-        path: 'Pokedex',
-        element: <Pokedex/>,
-      }
     ],
   },
 ]);
@@ -49,4 +52,6 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <RouterProvider router={router} />
   </StrictMode>
-)
+);
+
+

@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { useAuth } from './contexts/AuthContext';
+import { AuthProvider, useAuth } from './contexts/AuthContext';
 import Login from './components/Login.jsx';
 import Signup from './components/Signup.jsx';
 import Dashboard from './components/Dashboard.jsx';
-import pokeindexLogo from '/img/PokeIndex.gif'; // Caminho ajustado para public/img
 import './App.css';
 
 function AuthApp() {
@@ -25,7 +24,7 @@ function AuthApp() {
       <div className="auth-card">
         <div className="logo-container">
           <img 
-            src={pokeindexLogo} 
+            src="/img/PokeIndex.gif" 
             alt="PokeIndex Logo" 
             className="img-fluid"
           />
@@ -41,5 +40,13 @@ function AuthApp() {
   );
 }
 
-export default AuthApp;
+function AuthWrapper() {
+  return (
+    <AuthProvider>
+      <AuthApp />
+    </AuthProvider>
+  );
+}
+
+export default AuthWrapper;
 
