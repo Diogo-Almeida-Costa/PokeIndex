@@ -1,0 +1,433 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
+
+:root 
+{
+    --azul-primario: #1e28be;
+    --rosa-primario: #f0557c;
+    --fundo-card-custom: #282828; 
+    --cor-texto: #ffffff;
+    --fonte-jersey: "Jersey 15", sans-serif;
+    --fonte-arial: Arial, sans-serif;
+    --altura-menu-superior: 20vh;
+
+    /* Cores customizadas para badges */
+    --tipo-planta-fundo: rgb(34, 139, 34);
+    --tipo-veneno-fundo: rgb(128, 0, 128);
+    --tipo-fogo-fundo: rgb(255, 69, 0);
+    --tipo-voador-fundo: rgb(135, 206, 250);
+    --tipo-agua-fundo: rgb(0, 191, 255);
+    --tipo-eletrico-fundo: rgb(255, 215, 0); 
+    --borda-padrao-tipo: #ffffff;
+}
+
+body 
+{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    background-image: url("../img/background.png");
+    background-size: 400% 400%;
+    animation: gradientAnimation 5s ease infinite;
+    font-family: var(--fonte-arial);
+    color: var(--cor-texto);
+    padding-top: var(--altura-menu-superior); 
+    padding-left: 135px; 
+    box-sizing: border-box;
+}
+
+.jersey-15-regular 
+{
+    font-family: var(--fonte-jersey);
+    font-weight: 400;
+    font-style: normal;
+}
+
+/*Pra o menu superior e o lateral é pra copiar esse trecho até o proximo comentario*/
+.tipo-planta { background-color: var(--tipo-planta-fundo) !important; }
+.tipo-veneno { background-color: var(--tipo-veneno-fundo) !important; }
+.tipo-fogo { background-color: var(--tipo-fogo-fundo) !important; }
+.tipo-voador { background-color: var(--tipo-voador-fundo) !important; }
+.tipo-agua { background-color: var(--tipo-agua-fundo) !important; }
+.tipo-eletrico { background-color: var(--tipo-eletrico-fundo) !important; }
+
+.menu-superior 
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--altura-menu-superior);
+    z-index: 1000;
+}
+
+.forma-azul, .forma-rosa 
+{ 
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.forma-azul 
+{
+    background-color: var(--azul-primario);
+    z-index: 2; 
+    clip-path: polygon(
+        0% 0%, 100% 0%, 
+        100% 60%, 95% 60%, 80% 20%, 65% 20%, 55% 50%, 45% 50%, 35% 20%, 20% 20%, 5% 60%, 0% 60%
+    );
+}
+
+.forma-rosa 
+{
+    background-color: var(--rosa-primario);
+    z-index: 1; 
+    clip-path: polygon(
+        0% 60%, 5% 60%, 20% 20%, 35% 20%, 45% 50%, 55% 50%, 65% 20%, 80% 20%, 95% 60%, 100% 60%,
+        100% 75%, 95% 75%, 80% 35%, 65% 35%, 55% 65%, 45% 65%, 35% 35%, 20% 35%, 5% 75%, 0% 75%
+    );
+}
+
+.botao-central 
+{
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10; 
+    padding: 0;
+}
+
+.botao-central img 
+{
+    width: 250px;
+    height: auto;
+    display: block;
+}
+
+
+.avatar-container 
+{
+    background: #459CFF;
+    border-radius: 50%;
+    padding: 3px;
+    border: 3px solid white;
+    position: absolute;
+    top: 8px;
+    left: 40px;
+    z-index: 4; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.avatar 
+{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: block;
+}
+
+.menu-lateral 
+{
+    text-align: center;
+    width: 135px;
+    background: linear-gradient(to bottom, #1e90ff, #0000aa);
+    height: 100vh;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 900; 
+    box-sizing: border-box;
+    padding-top: calc(var(--altura-menu-superior) + 20px); 
+}
+
+.menu 
+{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+}
+
+.btn-custom-menu-lateral 
+{
+    background-color: var(--fundo-card-custom) !important;
+    border: 2px solid white !important;
+    color: white !important;
+    border-radius: 20px !important;
+    font-size: 14px !important;
+    width: 110px !important;
+    padding: 8px 10px !important;
+    transition: background-color 0.2s ease, transform 0.2s ease !important;
+}
+
+.btn-custom-menu-lateral:hover,
+.btn-custom-menu-lateral.active 
+{
+    background-color: hotpink !important;
+    transform: scale(1.05) !important;
+    border-color: white !important;
+}
+
+.pokemon-img 
+{ 
+    background-color: #77b255;
+    border-radius: 15px;
+    margin-top: 20px;
+    padding: 10px;
+    border: 3px solid white;
+}
+
+.pokemon-img img 
+{
+    width: 70px;
+    height: 70px;
+    display: block;
+}
+
+.joystick-area 
+{
+    margin-top: auto; 
+    padding-bottom: 20px;
+}
+
+.joystick-area img 
+{
+    width: 100px;
+    height: auto;
+    display: block;
+}
+/*COPIAR ATÉ AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII*/
+
+a 
+{
+    text-decoration: none;
+    color: var(--cor-texto);
+}
+
+a:hover
+{
+    color: var(--rosa-primario);
+}
+
+main.containerMain 
+{
+    min-height: calc(100vh - var(--altura-menu-superior));
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+h1 
+{
+    font-size: clamp(2.5rem, 5vw, 4rem); 
+    color: var(--fundo-card-custom) !important; 
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    text-align: center;
+    font-family: var(--fonte-jersey);
+    color: var(--cor-texto); 
+}
+
+.pokeCard 
+{
+    background-color: var(--fundo-card-custom) !important; 
+    border: 2px solid transparent;
+    color: var(--cor-texto);
+    transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    position: relative; 
+}
+
+.pokeCard.selecionado 
+{
+    border-color: var(--azul-primario) !important;
+    box-shadow: 0 0 15px var(--azul-primario);
+    transform: scale(1.03);
+}
+
+.poke-image 
+{ 
+    max-height: 150px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    margin: 10px auto; 
+    transition: transform 0.2s;
+}
+
+.pokeCard:hover .poke-image 
+{
+    transform: scale(1.1);
+}
+
+.poke-name 
+{ 
+    font-family: var(--fonte-jersey);
+    color: var(--cor-texto);
+    font-size: 1.5em;
+}
+
+.poke-description 
+{ 
+    font-size: 0.9em;
+    text-align: justify;
+    color: #ddd; 
+}
+
+
+.tipos .badge 
+{
+    font-size: 0.8em;
+    padding: 0.4em 0.6em;
+    color: white !important;
+    margin: 2px; 
+}
+
+
+.menu-botao-confirmar 
+{ 
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%); 
+    padding: 8px 15px;
+    background-color: var(--tipo-fogo-fundo);
+    color: var(--cor-texto);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: var(--fonte-jersey);
+    font-size: 1.3em;
+    z-index: 5; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: background-color 0.2s ease;
+}
+
+.menu-botao-confirmar:hover 
+{
+    background-color: #cc5800; 
+}
+
+.pokemon-checkbox.form-check-input 
+{ 
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 1.5em;
+    height: 1.5em;
+    z-index: 2; 
+    background-color: #fff; 
+    border-color: var(--rosa-primario);
+}
+
+.pokemon-checkbox.form-check-input:checked 
+{
+    background-color: var(--rosa-primario);
+    border-color: var(--rosa-primario);
+}
+
+.botao-salvar-inferior.btn 
+{ 
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 25px;
+    background-color: var(--tipo-planta-fundo) !important; 
+    color: white !important;
+    border: none;
+    border-radius: 25px;
+    font-family: var(--fonte-jersey);
+    font-size: 1.5em;
+    z-index: 1001; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.botao-salvar-inferior.btn:hover 
+{
+    background-color: #046e16 !important;
+    transform: scale(1.05);
+}
+
+@media (max-width: 1280px) 
+{ 
+    body 
+    {
+        padding-left: 100px;
+    }
+    .menu-lateral 
+    {
+        width: 100px;
+        padding-top: calc(var(--altura-menu-superior) + 10px);
+    }
+    .btn-custom-menu-lateral 
+    {
+        font-size: 12px !important;
+        width: 85px !important;
+        padding: 6px 8px !important;
+    }
+    .avatar-container 
+    {
+        left: 20px;
+    }
+    
+}
+
+@media (max-width: 768px) 
+{ 
+    body 
+    {
+        padding-left: 80px;
+    }
+    .menu-lateral 
+    {
+        width: 80px;
+    }
+    .btn-custom-menu-lateral 
+    {
+        font-size: 11px !important;
+        width: 65px !important;
+        padding: 5px !important;
+    }
+    .avatar-container 
+    {
+        left: 15px; 
+    }
+   
+}
+
+@media (max-width: 480px) 
+{ 
+    body 
+    {
+        padding-top: 15vh; 
+        padding-left: 0; 
+    }
+    .menu-superior 
+    {
+        height: 15vh; 
+    }
+    .menu-lateral 
+    {
+        display: none; 
+    }
+    main.containerMain 
+    {
+        min-height: calc(100vh - 15vh); 
+        padding: 10px;
+    }
+    .avatar-container 
+    {
+        display: none; 
+    }
+    
+}

@@ -10,8 +10,8 @@ import { PaginaArtigos } from './pages/PaginaArtigos.tsx';
 import { Layout } from './components/Layout.tsx';
 import { PaginaDetalhesArtigo } from './pages/PaginaDetalhesArtigo.tsx';
 import { PaginaFormularioArtigo } from './pages/PaginaFormularioArtigo.tsx';
-import {Pokedex} from './pages/Pokedex.tsx';
-import {SelecionarTimes} from './pages/SelecionarTimes.tsx';
+import Pokedex from './pages/Pokedex.tsx';
+import EscolherPokemons from './pages/EscolherPokemons.tsx';
 
 const router = createBrowserRouter([
   {
@@ -44,7 +44,8 @@ const router = createBrowserRouter([
       },
       {
         path:' Novo time + ',
-        element: <SelecionarTimes/>  ,
+        element: <EscolherPokemons/>,
+        errorElement: <div>Erro ao carregar a página do Time Pokémon</div>,
       }
     ],
   },

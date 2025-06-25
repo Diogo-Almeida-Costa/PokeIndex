@@ -1,4 +1,4 @@
-import { db } from './firebase.ts';
+import { db } from '../services/firebase.ts';
 import { collection, getDocs, addDoc, doc, getDoc, deleteDoc, updateDoc, query, orderBy } from 'firebase/firestore';
 import type { Artigo } from '../types/artigo.types.ts';
 
