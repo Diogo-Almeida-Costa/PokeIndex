@@ -120,10 +120,17 @@ h2 {
   border-color: #f0557c;
 }
 
+.pokemon-card.selecionado {
+  border: 4px solid gold;
+  box-shadow: 0 0 10px gold;
+}
+
 .pokemon-image {
   background-color: #121212;
   padding: 10px;
   display: flex;
+  border-radius: 10px;
+  width: 100%;
   justify-content: center;
 }
 

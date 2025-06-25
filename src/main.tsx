@@ -11,6 +11,7 @@ import { Layout } from './components/Layout.tsx';
 import { PaginaDetalhesArtigo } from './pages/PaginaDetalhesArtigo.tsx';
 import { PaginaFormularioArtigo } from './pages/PaginaFormularioArtigo.tsx';
 import {Pokedex} from './pages/Pokedex.tsx';
+import {SelecionarTimes} from './pages/SelecionarTimes.tsx';
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: 'Pokedex',
         element: <Pokedex/>,
+      },
+      {
+        path:' Novo time + ',
+        element: <SelecionarTimes/>  ,
       }
     ],
   },
